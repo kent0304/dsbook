@@ -5,14 +5,17 @@ class Converter:
         self.tagger = MeCab.Tagger('-Owakati')
 
         self.convert_rules = [
-            ('です 。', 'や ねん 。'),
-            ('だよ 。', 'や で 。'),
-            ('だ 。', 'や 。'),
-            ('です か 。', 'やろ か 。'),
-            ('かも 。', 'やろ なぁ 。'),
-            ('だった 。', 'やった 。'),
+            ('です ！', 'や ねん ！'),
+            ('だよ ！', 'や で ！'),
+            ('だ ！', 'や ！'),
+            ('です か ！', 'やろ か ！'),
+            ('かも ！', 'やろ なぁ ！'),
+            ('だった', 'やった'),
+            ('よろしく', 'よろしゅう'),
+            ('ありがとう', 'おおきに'),
+            ('違う', 'ちゃう'),
             ]
-    
+
     def convert(self, text):
         tokens = self.tagger.parse(text)
         for rule in self.convert_rules:
